@@ -40,7 +40,7 @@ public interface UserMngDao extends JpaRepository<User, Long>
   // nativeQuery = true时，可以执行原生sql语句，所谓原生sql，也就是说这段sql拷贝到数据库中，然后把参数值给一下就能运行了。
   // value是自定义的SQL语句。
   // @Param用来参数绑定
-  @Query(name = "findByUserNameLike", value = "select * from tm_user where user_name like '%:username%'", nativeQuery = true)
+  @Query(name = "findByUserNameLike", value = "select * from tm_user where user_name like %:username% ", nativeQuery = true)
   List<User> findByUserNameLike(@Param("username") String username);
 
   //Page<User> findALL(Pageable pageable);

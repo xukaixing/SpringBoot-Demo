@@ -21,4 +21,6 @@ public interface UserMngService
   User update(User students);
 
   List<User> findByUserName(String userName);
+
+  List<User> findByUserNameLike(String userName);
 }

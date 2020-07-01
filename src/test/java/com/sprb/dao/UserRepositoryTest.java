@@ -63,6 +63,7 @@ public class UserRepositoryTest
     TestCase.assertEquals(3, userRepository.findAll().size());
     TestCase.assertEquals("bb", userRepository.findByUserNameOrEmail("bb", "bb@126.com").getNickName());
 
+    //Optional<List<User>> opt = Optional.of(Optional.ofNullable(userRepository.findByUserName("aa")).orElse(userRepository.findAll()));
     Optional<List<User>> opt = Optional.ofNullable(userRepository.findByUserName("aa"));
     opt.ifPresent(u -> userRepository.delete((User) u.get(0)));
   }
