@@ -6,6 +6,15 @@
 # @Version: v1.0.1
 # =====================================
 spring:
+  #热部署devtools配置,实际使用效果不如JRebel插件
+  #  devtools:
+  #    restart:
+  #      enabled: true  #设置开启热部署
+  #      additional-paths: src/main/java #重启目录
+  #      exclude: WEB-INF/**
+  #  freemarker:
+  #    cache: false    #页面不加载缓存，修改即时生效
+
   #数据源配置
   datasource:
     #driver-class-name: com.mysql.jdbc.Driver
@@ -73,6 +82,16 @@ spring:
         format_sql: true
     #show-sql 是否在日志中打印出自动生成的 SQL，方便调试的时候查看
     show-sql: true
+
+  #thymeleaf配置
+  thymeleaf:
+    cache: false
+    prefix: classpath:/templates/
+    suffix: .html
+    mode: HTML5
+    encoding: UTF-8
+    servlet:
+      content-type: text/html
 server:
   port: 8888 #访问端口号
   servlet:

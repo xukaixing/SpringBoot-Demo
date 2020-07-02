@@ -4,11 +4,12 @@
   作者:andy.ten@tom.com 
   
 ## 版本
+> v1.0.3 : 2020.07.01
+>> 增加了Thymeleaf测试html页
+---
 > v1.0.2 : 2020.06.29
 >> 增加了User、Role的Test测试类
-  
 ---
-
 > v1.0.1 : 2020.06.18
 >> 实现application.yml配置方式
 >> 增加druid配置
@@ -27,12 +28,13 @@
   - `Druid`：数据库连接池
   - `JPA`：orm持久化规范接口
   - `Slf4j`：日志插件
+  - `Thymeleaf`: 前端页面插件
   - `Lombok`：生成Setter、Getter插件
   
 ## 运行
 
 ```java
-jar
+java -jar sprbdemo-1.0.1-SNAPSHOT.jar
 ```
 
 ## 目录

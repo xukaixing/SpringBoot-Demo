@@ -11,7 +11,7 @@
   <groupId>com.sprb</groupId>
   <artifactId>demo</artifactId>
   <version>1.0.1-SNAPSHOT</version>
-  <name>demo</name>
+  <name>sprbdemo</name>
   <description>Demo project for Spring Boot</description>
 
   <properties>
@@ -51,6 +51,13 @@
       <version>1.18.12</version>
       <scope>provided</scope>
     </dependency>
+    <!--springboot添加热部署:devtools热部署-->
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-devtools</artifactId>
+      <optional>true</optional>
+
+    </dependency>
 
     <dependency>
       <groupId>org.springframework.boot</groupId>
@@ -76,10 +83,30 @@
 
 
   <build>
+    <!-- 配置将哪些资源文件(静态文件/模板文件/mapper文件)加载到tomcat输出目录里 -->
+    <resources>
+      <resource>
+        <directory>src/main/java</directory><!--java文件的路径-->
+        <includes>
+          <include>**/*.*</include>
+        </includes>
+        <!-- <filtering>false</filtering>-->
+      </resource>
+      <resource>
+        <directory>src/main/resources</directory><!--资源文件的路径-->
+        <includes>
+          <include>**/*.*</include>
+        </includes>
+        <!-- <filtering>false</filtering>-->
+      </resource>
+    </resources>
     <plugins>
       <plugin>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-maven-plugin</artifactId>
+        <configuration>
+          <fork>true</fork>
+        </configuration>
       </plugin>
     </plugins>
   </build>

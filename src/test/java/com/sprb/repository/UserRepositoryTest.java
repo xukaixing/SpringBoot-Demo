@@ -1,8 +1,9 @@
-package com.sprb.dao;
+package com.sprb.repository;
 
 import com.sprb.SprbDemoApplication;
-import com.sprb.entities.User;
+import com.sprb.domain.User;
 import junit.framework.TestCase;
+import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -30,6 +31,8 @@ import java.util.Optional;
 @SpringBootTest(classes = {SprbDemoApplication.class})// 指定启动类
 // 引入配置类，表明在测试单元可以使用JpaConfig扫描到到的所有bean即所有实体。
 // @ContextConfiguration(classes = {JpaConfig.class, SprbDemoApplication.class})
+// @Slf4j:在任意类上添加注解@Slf4j，可以在本类中任意方法内用log.打印日志了
+@Slf4j
 public class UserRepositoryTest
 {
   // @resource:byName查找，如果byName查找不到，则通过byType
@@ -41,7 +44,7 @@ public class UserRepositoryTest
   // @Qualifier("userRepository")
   // @Resource(name = "userRepository")
   @Resource
-  private UserMngDao userRepository;
+  private UserRepository userRepository;
 
   @Test
   public void test()

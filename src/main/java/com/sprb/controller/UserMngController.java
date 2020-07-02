@@ -1,6 +1,6 @@
 package com.sprb.controller;
 
-import com.sprb.entities.User;
+import com.sprb.domain.User;
 import com.sprb.service.UserMngService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -39,11 +39,13 @@ public class UserMngController
     this.userMngService = userMngService;
   }
 
+
+  //@ResponseBody
   //@RequestMapping("/sayhello")
-  @PutMapping("/sayHello")
-  public void sayHello()
+  @GetMapping("/sayHello")
+  public String sayHello()
   {
-    System.out.println("sayHello!");
+    return "sayHello!";
   }
 
   // @ResponseBody 表示该方法的返回结果直接写入 HTTP response body 中，不做页面跳转；
@@ -79,7 +81,7 @@ public class UserMngController
   }
 
   @DeleteMapping("/delUser/{id}")
-  public String delUser(@PathVariable Long id)
+  public String delUser(@PathVariable("id") Long id)
   {
     userMngService.delete(id);
     return "delete user sucesss";

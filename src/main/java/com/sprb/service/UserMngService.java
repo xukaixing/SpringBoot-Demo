@@ -1,6 +1,6 @@
 package com.sprb.service;
 
-import com.sprb.entities.User;
+import com.sprb.domain.User;
 import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Service;
 
@@ -18,7 +18,7 @@ public interface UserMngService
 
   Page<User> findAll(int page, int pagesize);
 
-  User update(User students);
+  User update(User user);
 
   List<User> findByUserName(String userName);
 

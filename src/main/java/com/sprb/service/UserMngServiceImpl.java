@@ -1,7 +1,7 @@
 package com.sprb.service;
 
-import com.sprb.dao.UserMngDao;
-import com.sprb.entities.User;
+import com.sprb.domain.User;
+import com.sprb.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.data.domain.Page;
@@ -36,10 +36,10 @@ public class UserMngServiceImpl implements UserMngService
   // }
 
   // 构造器方式注入；强制依赖的类使用构造器方式注入，如果需要注入的bean很多，构造函数方式不适用
-  private final UserMngDao userMngDao;
+  private final UserRepository userMngDao;
 
   @Autowired
-  public UserMngServiceImpl(@Qualifier("userRepository") UserMngDao sUserMngDao)
+  public UserMngServiceImpl(@Qualifier("userRepository") UserRepository sUserMngDao)
   {
     this.userMngDao = sUserMngDao;
   }

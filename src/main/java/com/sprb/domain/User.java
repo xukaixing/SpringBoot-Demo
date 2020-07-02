@@ -1,4 +1,4 @@
-package com.sprb.entities;
+package com.sprb.domain;
 
 import lombok.*;
 

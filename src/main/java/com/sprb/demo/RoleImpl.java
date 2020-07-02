@@ -12,6 +12,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class RoleImpl implements Role
 {
+  // 在工程启动后，Spring的IOC容器会加载bean，执行初始化创建实例，就会执行这个构造方法
   public RoleImpl()
   {
 

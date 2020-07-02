@@ -14,7 +14,7 @@ import org.springframework.context.annotation.ComponentScan;
 // @SpringBootApplication(scanBasePackages = {"com.**.demo", "com.**.controller", "com.**.service"})
 @SpringBootApplication
 // 可指定需要spring扫描的包
-@ComponentScan(basePackages = {"com.**.demo", "com.**.controller", "com.**.service", "com.**.dao"})
+@ComponentScan(basePackages = {"com.**.demo", "com.**.controller", "com.**.service", "com.**.repository"})
 public class SprbDemoApplication
 {
 
