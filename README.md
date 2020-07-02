@@ -4,6 +4,11 @@
   作者:andy.ten@tom.com 
   
 ## 版本
+> v1.0.4 : 2020.07.02
+>> 增加了日志配置,使用Lombok中的@Slf4j注解
+>> 配置日志格式配置：logback-spring.xml
+>> 优化druid配置，增加了慢sql输出到指定log_druid.log文件中
+---
 > v1.0.3 : 2020.07.01
 >> 增加了Thymeleaf测试html页
 ---
@@ -27,23 +32,23 @@
 - 组件
   - `Druid`：数据库连接池
   - `JPA`：orm持久化规范接口
-  - `Slf4j`：日志插件
+  - `Slf4j+logback-spring`：日志插件
   - `Thymeleaf`: 前端页面插件
   - `Lombok`：生成Setter、Getter插件
   
 ## 运行
 
 ```java
-java -jar sprbdemo-1.0.1-SNAPSHOT.jar
+# 运行jar命令
+$ java -jar sprbdemo-1.0.1-SNAPSHOT.jar
 ```
 
 ## 目录
 
 ``` 目录
 .
-├── README.md
 ├── pom.xml
-├── springboot-demo.iml
+├── settings-springboot-demo.xml
 └── src
     ├── main
     │   ├── java
@@ -52,23 +57,28 @@ java -jar sprbdemo-1.0.1-SNAPSHOT.jar
     │   │           ├── SprbDemoApplication.java
     │   │           ├── config
     │   │           ├── controller
-    │   │           ├── dao
     │   │           ├── demo
-    │   │           ├── entities
+    │   │           ├── domain
+    │   │           ├── repository
     │   │           └── service
     │   └── resources
+    │       ├── META-INF
     │       ├── application.properties.bak
     │       ├── application.yml
+    │       ├── logback-spring.xml
+    │       ├── rebel.xml
     │       ├── static
     │       └── templates
+    │           └── countryIndex.html
     └── test
         └── java
             └── com
                 └── sprb
-                    ├── dao
-                    └── demo
+                    ├── controller
+                    ├── demo
+                    └── repository
 
-20 directories, 6 files
+22 directories, 8 files
 
 ```
 

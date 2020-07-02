@@ -2,6 +2,7 @@ package com.sprb.controller;
 
 import com.sprb.domain.Country;
 import com.sprb.service.CountryMngService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -16,6 +17,7 @@ import java.util.List;
  * @author:andy.ten@tom.com
  * @date:2020/7/1 11:55 上午
  */
+@Slf4j
 @Controller
 public class CountryMngController
 {
@@ -32,6 +34,8 @@ public class CountryMngController
   {
     List<Country> list = countryMngService.findAll();
     model.addAttribute("countrys", list);
+    log.info("countrys list:{}", list);
+    
     return "countryIndex";
   }
 }

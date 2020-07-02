@@ -57,13 +57,22 @@ spring:
       #配置扩展插件
       filters: stat,wall,slf4j
       #通过connectProperties属性来打开mergeSql功能；慢SQL记录
-      connection-properties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000
+      #slowSqlMillis=5000：5秒以上视为慢sql
+      connection-properties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000;druid.stat.logSlowSql=true
       #合并多个DruidDataSource的监控数据
       use-global-data-source-stat: true
       #设置访问druid监控页的账号和密码,默认没有
       stat-view-servlet:
         login-username: admin
         login-password: admin123
+        url-pattern: "/druid/*"
+        enabled: true
+      web-stat-filter:
+        enabled: true
+        # 添加过滤规则
+        url-pattern: /*
+        # 忽略过滤格式
+        exclusions: "*.js,*.gif,*.jpg,*.png,*.css,*.ico,/druid/*"
 
   #JPA配置
   jpa:
